@@ -44,8 +44,19 @@ def add_task() -> None:
 
 
 
-def view_tasks():
-    print("[TODO]")
+def view_tasks() -> None:
+    if not tasks:
+        print("\nNo tasks found.\n")
+        return
+    print("\nCureent Tasks")
+    print(f"{'ID':<5}{'Title':<20}{'Status':<12}{'Description'}")
+    print("-" * 60)
+    for task in tasks:
+        print(f"{task['id']:<5}{task['title']:<20}{task['status']:<12}{task['description']}")
+    print()
+
+
+
 def update_task():
     print("[TODO]")
 def delete_task():
