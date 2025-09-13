@@ -43,16 +43,6 @@ def add_task() -> None:
     next_id += 1
 
 
-'''        description = input(str)
-        status = input()
-        if not status:
-            description = "pending"
-            return
-        next_id += 1
-        print("task added successfuly")
-    else:
-        print("title can not be Empty")'''
-
 
 def view_tasks():
     print("[TODO]")
