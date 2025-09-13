@@ -22,8 +22,38 @@ def _save_tasks():
 #--------------CRUD----------------
 
 
-def add_task():
-    print("[TODO]")
+def add_task() -> None:
+    global next_id
+    title = input("Enter task title: ").strip()
+    if not title:
+        print("title can not be Empty")
+        return
+    description = input("Enter task description: ").strip()
+    status = input(("Enter status (press Enter for 'pending'): ")).strip() or "pending"
+
+    record = {
+        "id": next_id,
+        "title": title,
+        "description": description,
+        "status": status,
+    }
+    tasks.append(record)
+    _save_tasks()
+    print(f"task #{next_id} added: {title} [{status}]")
+    next_id += 1
+
+
+'''        description = input(str)
+        status = input()
+        if not status:
+            description = "pending"
+            return
+        next_id += 1
+        print("task added successfuly")
+    else:
+        print("title can not be Empty")'''
+
+
 def view_tasks():
     print("[TODO]")
 def update_task():
