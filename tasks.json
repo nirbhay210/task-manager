@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Buy milk",
-    "description": "2L",
+    "title": "milk",
+    "description": "2l",
     "status": "amul"
+  },
+  {
+    "id": 2,
+    "title": "vegee",
+    "description": "1kg",
+    "status": "onion"
   }
 ]
