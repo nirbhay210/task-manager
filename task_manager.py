@@ -17,7 +17,7 @@ def _save_tasks():
     with open(TASKS_FILE, "w") as f:
         json.dump(tasks, f, indent=2)
 
-def _find_task_index_by_id(task_id: int) -> int:
+def _find_task_index_by_id(task_id: int) -> int: 
     for i, task in enumerate(tasks):
         if task["id"] == task_id:
             return i
@@ -91,8 +91,22 @@ def update_task() -> None:
     _save_tasks()
     print(f"Task {task_id} updated.\n")
 
-def delete_task():
-    print("[TODO]")
+def delete_task() -> None:
+    try:
+        task_id = int(input("Enter task ID to delete: ").strip())
+    except ValueError:
+        print("Invalid ID. Must be a number.")
+        return
+    
+    idx = _find_task_index_by_id(task_id)
+    if idx == -1:
+        print(f"Task{task_id} not found.")
+        return
+    
+    removed = tasks.pop(idx)
+    _save_tasks()
+    print(f"Deleted task {removed['id']}: {removed['title']}")
+
 
 
 #--------------Menu----------------
